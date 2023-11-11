@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace PruebaJerson.Models;
 
-public partial class Hotele
+public partial class Hoteles
 {
     public int Id { get; set; }
 
     public string Nombre { get; set; } = null!;
-
-    public virtual ICollection<Habitacione> Habitaciones { get; set; } = new List<Habitacione>();
+    public int Activo { get; set; }
+    public virtual ICollection<Habitaciones> Habitaciones { get; set; } = new List<Habitaciones>();
 }

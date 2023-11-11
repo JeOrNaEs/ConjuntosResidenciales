@@ -15,9 +15,9 @@ public partial class ViajesDbContext : DbContext
     {
     }
 
-    public virtual DbSet<Habitacione> Habitaciones { get; set; }
+    public virtual DbSet<Habitaciones> Habitaciones { get; set; }
 
-    public virtual DbSet<Hotele> Hoteles { get; set; }
+    public virtual DbSet<Hoteles> Hoteles { get; set; }
 
     public virtual DbSet<Reserva> Reservas { get; set; }
 
@@ -27,7 +27,7 @@ public partial class ViajesDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Habitacione>(entity =>
+        modelBuilder.Entity<Habitaciones>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Habitaci__3214EC070A558F46");
 
@@ -38,7 +38,7 @@ public partial class ViajesDbContext : DbContext
                 .HasConstraintName("FK__Habitacio__Hotel__267ABA7A");
         });
 
-        modelBuilder.Entity<Hotele>(entity =>
+        modelBuilder.Entity<Hoteles>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Hoteles__3214EC075242341C");
 

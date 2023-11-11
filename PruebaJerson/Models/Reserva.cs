@@ -9,5 +9,5 @@ public partial class Reserva
 
     public int? HabitacionId { get; set; }
 
-    public virtual Habitacione? Habitacion { get; set; }
+    public virtual Habitaciones? Habitacion { get; set; }
 }
