@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using PruebaJerson.Models;
 
 namespace PruebaJerson.Controllers
@@ -163,5 +165,47 @@ namespace PruebaJerson.Controllers
         {
           return (_context.Reservas?.Any(e => e.Id == id)).GetValueOrDefault();
         }
+
+        //private readonly SendGridOptions _sendGridOptions;
+
+        //// Inyecta la configuración de SendGrid en el controlador
+        //public ReservasController(IOptions<SendGridOptions> sendGridOptions)
+        //{
+        //    _sendGridOptions = sendGridOptions.Value;
+        //}
+
+        //// ... Otras acciones ...
+
+        //[HttpPost]
+        //public IActionResult ReservarHabitacion(Reserva reserva)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        // Guarda la reserva en la base de datos
+        //        _dbContext.Reservas.Add(reserva);
+        //        _dbContext.SaveChanges();
+
+        //        // Envía un correo electrónico al usuario
+        //        EnviarCorreoElectronico(reserva.CorreoElectronico, "¡Reserva Exitosa!", "Gracias por reservar con nosotros.");
+
+        //        return RedirectToAction("Index"); // O la página que desees después de la reserva
+        //    }
+
+        //    return View(reserva);
+        //}
+
+        //// Método para enviar un correo electrónico utilizando SendGrid
+        //private void EnviarCorreoElectronico(string destinatario, string asunto, string contenido)
+        //{
+        //    var apiKey = _sendGridOptions.ApiKey;
+        //    var client = new SendGridClient(apiKey);
+
+        //    var from = new EmailAddress("tucorreo@tudominio.com", "Nombre de tu Empresa");
+        //    var to = new EmailAddress(destinatario);
+        //    var msg = MailHelper.CreateSingleEmail(from, to, asunto, contenido, contenido);
+
+        //    // Envía el correo electrónico de forma asíncrona
+        //    var response = client.SendEmailAsync(msg).Result;
+        //}
     }
 }
